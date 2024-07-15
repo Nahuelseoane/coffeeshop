@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-2xl font-bold text-gray-900 sm:text-xl">My order</h1>
+<br>
+<p class="font-semibold">User: </p>{{order.user.username}}
+<p class="font-semibold">Order's date: </p>{{order.order_date|date}}
+<br> <br>
+<p class="font-semibold">Order's items: </p>
+
+{% for product_order in order.orderproduct_set.all  %}
+    {{ product_order.product.name }} - 
+    {{ product_order.product.price }}
+    <br>
+{% empty %}
+    No items in your order
+{% endfor %}
+<a href="{% url "main" %}" >
+    <button class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring">
+        Home
+    </button>
+</a>
+<a href="{% url "add-product" %}">
+    <button class="inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 px-5 py-3 text-gray-500 transition hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:ring">Add Product</button>
+</a>
+{% endblock content %}
