@@ -3,8 +3,8 @@
 
     <h1 class="text-3xl font-bold underline">Products Options</h1>
     <br>
-    <a href="http://127.0.0.1:8000/products/list/">Product's List</a>
+    <a href="{% url "list_product" %}">Product's List</a>
     <br>
-    <a href="http://127.0.0.1:8000/products/agregar/">Add new Product</a>
+    <a href="{% url "add_product" %}">Add new Product</a>
 
 {% endblock content %}
